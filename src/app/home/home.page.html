@@ -1,0 +1,38 @@
+<ion-header style="box-shadow: 0 5px 10px rgba(0,0,0,0.5);">
+  <ion-toolbar color="tertiary">
+    <ion-title style="text-align: center">{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+  <ion-grid style="margin-top: 20px">
+    <ion-row>
+      <ion-col size="6">
+          <div class="ion-text-center">
+            <ion-card color="warning">
+              <ion-card-content><h2>Temperatura</h2><h1>{{temp}}°C</h1></ion-card-content>
+            </ion-card>
+          </div>
+      </ion-col>
+      <ion-col size="6">
+          <div class="ion-text-center">
+            <ion-card color="warning">
+              <ion-card-content><h2>Umidade</h2><h1>{{humid}}%</h1></ion-card-content>
+            </ion-card>
+          </div>
+      </ion-col>
+      <ion-col size="12" style="margin-top: 30px">
+        <div class="ion-text-center">
+          <ion-icon *ngIf="ligado" style="font-size: 80px" color="warning" name="flash"></ion-icon>
+          <ion-icon *ngIf="!ligado" style="font-size: 80px" name="flash"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="ion-text-center">
+          <ion-button size="large" *ngIf="!ligado" (click)="sendLed('ligar')" type="submit" style="width: 50%" ion-button>Ligar</ion-button>
+          <ion-button size="large" *ngIf="ligado" (click)="sendLed('desligar')" type="submit" style="width: 50%" ion-button>Desligar</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
